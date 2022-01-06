@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "jbbc8lrJ5srPvDuaNA5ilYquF3kundm34MvwPDwqwUpiwkdWrNPtLizXrd0zZAhVpot92XTRdr0n0YmForoXWQ==",
+  "success": true,
+  "projectFilePath": "/Users/prioleloi/Documents/GitHub/-ALGOSUP_2022_Project_3_F/FirstStepWaveForm/FirstStepWaveForm.fsproj",
+  "expectedPackageFiles": [
+    "/Users/prioleloi/.nuget/packages/fsharp.core/6.0.1/fsharp.core.6.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
