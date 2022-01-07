@@ -13,15 +13,28 @@ let triangleCoords = [0.;0.]
 let sawToothCoords = [0.;0.]
 let squareCoords =[0.,0.]
 let xCoord = 0.
-//let yCoord =  Amplitude *  (Math.PI * xCoord)
-//let sin = Amplitude * sin ((2.*Math.PI*Time)/interval)
-[|for i in 0..Time 
+
+let yCoord =  Amplitude *  (Math.PI * xCoord)
+let sin = Amplitude * Math.Sin ((2.*Math.PI*Time - Frequency)/interval)
+
+[|for i in 0. .. Time do
     xCoord = (i * (2.*interval)) /nmbrOfPts
 |]
-    
-    sprintf"%O" xCoord
 
-//sprintf"%O" yCoord
+sprintf"%O" xCoord
+sprintf"%O" yCoord
+sprintf"%O" sin
+
+
+let  triangle = ((2.* Amplitude)/Math.PI)* Math.Sin(-1) * Math.Sin ((2.* Math.PI * Time - Frequency)/interval)
+
+sprintf"%O" triangle
+
+
+let sawtooth = ((2. * Amplitude)/Math.PI) * Math.Tan(-1) * Math.Tan ((2.* Math.PI * Time - Frequency)/2.*interval)
+
+sprintf"%O" sawtooth
+
 
 /// Write WAVE PCM soundfile (8KHz Mono 8-bit)
 (*let write stream (data:byte[]) =

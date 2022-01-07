@@ -113,24 +113,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/prioleloi/.nuget/packages/": {}
+    "C:\\Users\\EliseGAUTIER\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/prioleloi/Documents/GitHub/-ALGOSUP_2022_Project_3_F/FirstStepWaveForm/FirstStepWaveForm.fsproj",
+      "projectUniqueName": "C:\\Projet\\ALGOSUP_2022_Project_3_F\\FirstStepWaveForm\\FirstStepWaveForm.fsproj",
       "projectName": "FirstStepWaveForm",
-      "projectPath": "/Users/prioleloi/Documents/GitHub/-ALGOSUP_2022_Project_3_F/FirstStepWaveForm/FirstStepWaveForm.fsproj",
-      "packagesPath": "/Users/prioleloi/.nuget/packages/",
-      "outputPath": "/Users/prioleloi/Documents/GitHub/-ALGOSUP_2022_Project_3_F/FirstStepWaveForm/obj/",
+      "projectPath": "C:\\Projet\\ALGOSUP_2022_Project_3_F\\FirstStepWaveForm\\FirstStepWaveForm.fsproj",
+      "packagesPath": "C:\\Users\\EliseGAUTIER\\.nuget\\packages\\",
+      "outputPath": "C:\\Projet\\ALGOSUP_2022_Project_3_F\\FirstStepWaveForm\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/prioleloi/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\EliseGAUTIER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -166,7 +168,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
