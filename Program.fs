@@ -1,4 +1,9 @@
-﻿open System.IO
+﻿
+open System.IO
+open System
+open System.Threading
+open System.Buffers
+open SFML.Audio
 /// Write WAVE PCM soundfile (8KHz Mono 8-bit)
 let write stream (data:byte[]) =
    use writer = new BinaryWriter(stream)
@@ -19,12 +24,20 @@ let write stream (data:byte[]) =
    writer.Write("data"B)
    writer.Write(data.Length)
    writer.Write(data)
+
 let sample x = (x + 1.)/2. * 255. |> byte 
+
 let data = Array.init 45000 (fun i -> sin (float i/float 16) |> sample)
-let stream = File.Create(@"C:\AlgoSup\F#\SoundSynthetiser\test.wav")
+let stream = File.Create(@"C:\Users\RobinDEBRY\Desktop\dd\SoundDigital\test.wav")
 write stream data
-//let result = File.Open(@"C:\AlgoSup\F#\SoundSynthetiser\test.",FileMode.Open)
-let result = File.ReadAllBytes(@"C:\AlgoSup\F#\SoundSynthetiser\test.wav")
-printfn "%i" result.Length
-let header = System.Text.Encoding.ASCII.GetString(result.[0 .. 3])
-printfn "%s" header
+
+let PlaySound = 
+    let buffer = new SoundBuffer("test.wav")
+    let sound  = new Sound(buffer)
+    sound.Play()
+
+    while sound.Status = SoundStatus.Playing do 
+        let result = Console.CursorLeft = 0
+        Thread.Sleep(100)
+
+PlaySound
