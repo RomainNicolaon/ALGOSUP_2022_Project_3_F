@@ -1,11 +1,11 @@
 (*Amplitude between 0 & 255
 *)
 open System
-let Amplitude = 1.
-let Time = 1.
-let Frequency = 987.8  //Hertz
-let interval = 1e-4
-let nmbrOfPts = 40.
+let Amplitude = 1. // Measurement of its change in a single period
+let Time = 1. // Duration of a note
+let Frequency = 987.8  // Hertz
+let interval = 1e-4 // Is wavelength
+let nmbrOfPts = 40. // Number of points representing the curve
 
 let coordonates = [0.;0.]
 let sinCoords = [0.;0.]
@@ -14,25 +14,32 @@ let sawToothCoords = [0.;0.]
 let squareCoords =[0.,0.]
 let xCoord = 0.
 
+// Calculation for the placement of the ordinates on the curve
 let yCoord =  Amplitude *  (Math.PI * xCoord)
-let sin = Amplitude * Math.Sin ((2.*Math.PI*Time - Frequency)/interval)
 
+// Periodic calculation for sine wave
+let sine = Amplitude * sin ((2.*Math.PI*Time - Frequency)/interval)
+
+// Calculation for the placement of the abscissa on the curve from 0 to Time
 [|for i in 0. .. Time do
     xCoord = (i * (2.*interval)) /nmbrOfPts
 |]
 
+// Show results
 sprintf"%O" xCoord
 sprintf"%O" yCoord
-sprintf"%O" sin
+sprintf"%O" sine
 
+// Periodic calculation for triangle wave
+let  triangle = ((2.* Amplitude)/Math.PI)* sin(-1.) * sin ((2.* Math.PI * Time - Frequency)/interval)
 
-let  triangle = ((2.* Amplitude)/Math.PI)* Math.Sin(-1) * Math.Sin ((2.* Math.PI * Time - Frequency)/interval)
-
+// Show result
 sprintf"%O" triangle
 
+// Periodic calculation for sawtooth wave
+let sawtooth = ((2. * Amplitude)/Math.PI) * tan(-1.) * tan ((2.* Math.PI * Time - Frequency)/2.*interval)
 
-let sawtooth = ((2. * Amplitude)/Math.PI) * Math.Tan(-1) * Math.Tan ((2.* Math.PI * Time - Frequency)/2.*interval)
-
+// Show result
 sprintf"%O" sawtooth
 
 
