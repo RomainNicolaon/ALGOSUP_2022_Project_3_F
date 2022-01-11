@@ -6,7 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="PlaySound.fs" />
+    <Compile Include="CreateWave.fs" />
+    <Compile Include="CreateWaveFile.fs" />
+    <Compile Include="DisplayWave.fs" />
   </ItemGroup>
 
   <ItemGroup>
