@@ -3,16 +3,17 @@
 open System
 open SFML.Audio
 open System.Threading
-open
+open CreateWave
+open XPlot.GoogleCharts
+// let PlaySound = 
+//     let buffer = new SoundBuffer("test.wav")
+//     let sound  = new Sound(buffer)
+//     sound.Play()
 
-
-let PlaySound = 
-    let buffer = new SoundBuffer("test.wav")
-    let sound  = new Sound(buffer)
-    sound.Play()
-
-    while sound.Status = SoundStatus.Playing do 
-        Thread.Sleep(100)
+//     while sound.Status = SoundStatus.Playing do 
+//         Thread.Sleep(100)
 
         
-PlaySound
+// PlaySound
+
+sinus |> Chart.Line |> Chart.Show
