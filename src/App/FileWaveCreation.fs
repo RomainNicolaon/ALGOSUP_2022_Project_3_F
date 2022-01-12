@@ -28,7 +28,7 @@ let write stream (data:byte[]) =
 let sample x = (x + 1.)/2. * 255. |> byte 
 
 let data = Array.init 45000 (fun i -> sin (float i/float 16) |> sample)
-let stream = File.Create(@"C:\Users\RobinDEBRY\Desktop\dd\SoundDigital\test.wav")
+let stream = File.Create(@"test.wav")
 write stream data
 
 let PlaySound = 
