@@ -5,7 +5,7 @@ open SFML.Audio
 open SFML.System
 
 
-type PlaySound (way:string)  = 
+let PlaySound (way:string)  = 
     let buffer = new SoundBuffer(way)
     let sound  = new Sound(buffer)
     //initialise the time to begin the audio at this time

@@ -5,7 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="OpenAudioFile.fs" />
-    <Compile Include="Program.fs" />
+    <Compile Include="Wave.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Library\Library.fsproj" />

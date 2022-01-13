@@ -5,7 +5,7 @@ let sample x = (x + 1.)/2. * 255. |> byte
 let Pi = Math.PI
 let Amplitude = 1. // Measurement of its change in a single period
 let Frequency = 80. // Hertz
-let limit = 1000
+let limit = 10000
 
 
 // Periodic calculation for sine wave

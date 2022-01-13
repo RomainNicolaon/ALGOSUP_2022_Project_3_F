@@ -7,13 +7,6 @@ open System.Threading
 open CreateWave
 open CreateFile
 open XPlot.GoogleCharts
-// let PlaySound = 
-//     let buffer = new SoundBuffer("test.wav")
-//     let sound  = new Sound(buffer)
-//     sound.Play()
-
-//     while sound.Status = SoundStatus.Playing do 
-//         Thread.Sleep(100)
 
 
 let streamTriangle = File.Create(@"Triangle.wav")
@@ -31,5 +24,5 @@ square |> Chart.Line |> Chart.Show
 triangle|> Chart.Line |> Chart.Show
 sinus |> Chart.Line |> Chart.Show
 
-// PlaySound
+
 
