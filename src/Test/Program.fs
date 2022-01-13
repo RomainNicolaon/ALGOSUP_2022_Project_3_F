@@ -1,3 +1,5 @@
+namespace FSharpSynthe.Tests
+
 module Program =
 
     [<EntryPoint>]

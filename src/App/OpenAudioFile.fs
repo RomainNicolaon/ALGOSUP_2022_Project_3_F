@@ -1,8 +1,10 @@
-﻿module OpenAudio
+﻿namespace FSharpSynthe.App
 
 open System
-open PlaySound
+open FSharpSynthe.Library.PlaySound
 
-let result = PlaySound("Sinus.wav")
-result 
- 
+module OpenAudio =
+
+    let result = PlaySound("Sinus.wav")
+    result 
+    

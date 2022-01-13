@@ -1,4 +1,4 @@
-module Test
+namespace FSharpSynthe.Tests
 
 open NUnit.Framework
 
