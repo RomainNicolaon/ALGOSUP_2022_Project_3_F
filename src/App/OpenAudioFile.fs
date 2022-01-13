@@ -3,6 +3,6 @@
 open System
 open PlaySound
 
-let result = new PlaySound("test.wav")
-
+let result = PlaySound("Sinus.wav")
+result 
  

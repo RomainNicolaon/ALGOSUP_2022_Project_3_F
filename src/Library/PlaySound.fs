@@ -4,7 +4,7 @@ open System.Threading
 open SFML.Audio
 
 
-type PlaySound (way:string)  = 
+let PlaySound (way:string)  = 
     let buffer = new SoundBuffer(way)
     let sound  = new Sound(buffer)
     do sound.Play()
