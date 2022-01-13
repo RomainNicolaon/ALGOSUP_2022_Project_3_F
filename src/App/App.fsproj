@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FileWaveCreation.fs" /> 
     <Compile Include="OpenAudioFile.fs" /> 
     <Compile Include="Program.fs" />
   </ItemGroup>
