@@ -1,18 +1,22 @@
 # Project-3-Sound-Synthetizer
 
-<details>
-<summary>Table of Contents</summary>
+<details><summary>Table of Contents</summary>
   
-- [First Step](#1-first-step)
+- [1 First Part](#1-first-part)
+  - 1.1 First Step
+  - 1.2 Second Step
+  - 1.3 Third Step
+  - 1.4 Fourth Step
+- [2 Second Part](#2-second-part)
 </details>
 
 On this README, we will write every step of our project until the end and update it every time something has changed or when a task has ended or not
 
-# 1. First Step
+# 1. First Part
 
   At first, Eloi explained some basics of theoretical music, then we split into four groups based on the steps needed for the first step:
   
-## First step (Eloi/Elise)
+## 1.1. First Step
     
    The first step is to create an oscilator function that enables us to create waveforms as their four basic forms, Square, Sine, Triangle, Sawtooth
     
@@ -23,27 +27,29 @@ On this README, we will write every step of our project until the end and update
 
    ***code for each calculus***
 
-## Second Step (Thomas)
+## 1.2. Second Step
   A function to save waveform to disk, so it can be played back through a standard audio application
   
   - [x] Step 1
 
   ***important code to point at***
   
-## Third Step (Robin)
+## 1.3. Third Step
   A function to read a section of an audio file from disk
   
   - [x] Step 1
   
   ***important code to point at***
 
-## Fourth Step (Romain/Théo)
+## 1.4. Fourth Step
 
   A function to play the waveform directly without saving it to disk
 
-  - [x] Step 1
+  - [ ] Step 1
 
    ***important code to point at***
+   
+# 2. Second Part
 
 
 ## Contributors
