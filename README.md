@@ -2,6 +2,7 @@
 
 <details><summary>Table of Contents</summary>
   
+- [Technologies' Badges](#technologies-badges)
 - [1 First Part](#1-first-part)
   - 1.1 First Step
   - 1.2 Second Step
@@ -10,11 +11,16 @@
 - [2 Second Part](#2-second-part)
 </details>
 
+# Technologies' Badges
+[![made-with-FSharp](https://img.shields.io/badge/Languages%20Used:-FSharp-007acc.svg)](https://fsharp.org)
+
+[![made-with-Visual-Studio-Code](https://img.shields.io/badge/Softwares%20Used:-Visual%20Studio%20Code-0078d7.svg)](https://code.visualstudio.com) [![made-with-Visual-Studio-Community](https://img.shields.io/badge/Visual%20Studio%20Community-5d2b90.svg)](https://visualstudio.microsoft.com/vs/community/)
+
 On this README, we will write every step of our project until the end and update it every time something has changed or when a task has ended or not
 
 # 1. First Part
 
-  At first, Eloi explained some basics of theoretical music, then we split into four groups based on the steps needed for the first step:
+   We split into four groups based on the steps needed for the first step:
   
 ## 1.1. First Step
     
