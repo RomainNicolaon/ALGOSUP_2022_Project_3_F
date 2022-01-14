@@ -20,10 +20,29 @@ module CreateWave =
     let Amplitude = 1. // Measurement of its change in a single period
     let Frequency = 80. // Hertz
     let limit = 10000
+    
+    type Note  =
+        | A
+        | B
+        | C
+        | D
+        | E
+        | F
+        | G
+    let NoteLetter note  = 
+                match note with
+                | A -> 440.
+                | B -> 493.88
+                | C -> 261.63
+                | D -> 293.66
+                | E -> 329.63
+                | F -> 349.23
+                | G -> 392.
+
 
 
     // Periodic calculation for sine wave
-    let sinus = Array.init limit (fun i -> Amplitude * sin((Frequency/ Pi) * float i))
+    //let sinus = Array.init limit (fun i -> Amplitude * sin((Frequency/ Pi) * float i))
     //let sinusByte = Array.init limit (fun i -> Amplitude * sin((Frequency/ Pi) * float i) |> sample)//Sinusoidale
 
 
