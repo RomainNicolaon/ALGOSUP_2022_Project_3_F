@@ -1,12 +1,10 @@
-namespace FSharpSynthe.Tests
+namespace FSharpSynthe.Test
 
 open NUnit.Framework
-module Tests =
 
-    [<SetUp>]
-    let Setup () =
-        ()
+[<TestFixture>]
+type TestClass () =
 
     [<Test>]
-    let Test1 () =
-        Assert.Pass()
+    member this.TestMethodPassing() =
+        Assert.True(true)

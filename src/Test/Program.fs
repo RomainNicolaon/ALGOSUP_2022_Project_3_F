@@ -1,4 +1,4 @@
-namespace FSharpSynthe.Tests
+namespace FSharpSynthe.Test
 
 module Program =
 
