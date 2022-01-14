@@ -2,8 +2,18 @@ namespace FSharpSynthe.Library
 
 open System
 
-<<<<<<< Updated upstream
 module CreateWave =
+
+
+    // Periodic calculation for sine wave
+// let sinus frequency = List.init limit (fun i -> Amplitude * sin((frequency/ Pi) * float i))
+    let sinusByte time freq amp = //Sinusoidale
+            let t = 1.+(1./44100.)
+            let N = 44100. * time
+            let omega = 2. * Math.PI * freq
+            let points = [(0.)..t..N]
+            let points = points |> List.map(fun i -> amp * sin(omega*i))
+            points
 
     let sample x = (x + 1.)/2. * 255. |> byte
     let Pi = Math.PI
@@ -14,24 +24,7 @@ module CreateWave =
 
     // Periodic calculation for sine wave
     let sinus = Array.init limit (fun i -> Amplitude * sin((Frequency/ Pi) * float i))
-    let sinusByte = Array.init limit (fun i -> Amplitude * sin((Frequency/ Pi) * float i) |> sample)//Sinusoidale
-=======
-let Pi = Math.PI
-let Amplitude = 1. // Measurement of its change in a single period
-let Frequency = 80. // Hertz
-let limit = 10000
-
-
-// Periodic calculation for sine wave
-let sinus = Array.init limit (fun i -> Amplitude * sin((Frequency/ Pi) * float i))
-let SinusSong time freq amp = //Sinusoidale
-        let t = 1.+(1./44100.)
-        let N = 44100. * time
-        let omega = 2. * Math.PI * freq
-        let points = [(0.)..t..N]
-        let points = points |> List.map(fun i -> amp * sin(omega*i))
-        points
->>>>>>> Stashed changes
+    //let sinusByte = Array.init limit (fun i -> Amplitude * sin((Frequency/ Pi) * float i) |> sample)//Sinusoidale
 
 
 
