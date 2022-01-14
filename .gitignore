@@ -3,3 +3,5 @@ obj/
 .fake
 .ionide
 .DS_Store
+*.json
+*.xml
