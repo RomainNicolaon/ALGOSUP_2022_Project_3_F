@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="OpenAudioFile.fs" />
+    <Compile Include="Wave.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Library\Library.fsproj" />
+    <ProjectReference Include="..\Test\Test.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SFML.Net" Version="2.5.0" />
+    <PackageReference Include="XPlot.GoogleCharts" Version="3.0.1" />
+  </ItemGroup>
+</Project>
