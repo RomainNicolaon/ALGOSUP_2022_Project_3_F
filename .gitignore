@@ -2,4 +2,7 @@ bin/
 obj/
 .fake
 .ionide
+.DS_Store
+*.json
+*.xml
 FSharpSynthe
