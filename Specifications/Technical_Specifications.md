@@ -4,35 +4,41 @@
 
 <details>
 <summary>Table of Contents</summary>
-  
-- [First Step](#first-step)
+ 
+- [Technologies Badges](#technologies-badges)
+- [1. Purpose of the Project](#1-purpose-of-the-project)
+- [2. Technologies Used](#2-technologies-used)
+- [3. Interface Requirements](#3-interface-requirements)
+- [4. Integrations Requirements](#4-integrations-requirements)
+- [5. Functions and Algorithms](#5-functions-and-algorithms)
 </details>
 
 
-## Technologies Badges
+# Technologies Badges
+
 [![made-with-FSharp](https://img.shields.io/badge/Languages%20Used:-FSharp-007acc.svg)](https://fsharp.org)
 
 [![made-with-Visual-Studio-Code](https://img.shields.io/badge/Softwares%20Used:-Visual%20Studio%20Code-0078d7.svg)](https://code.visualstudio.com) [![made-with-Visual-Studio-Community](https://img.shields.io/badge/Visual%20Studio%20Community-5d2b90.svg)](https://visualstudio.microsoft.com/vs/community/)
 
-# First Step
-  ### Week 1
-  At first, Eloi explained some basics of theoretical music, then we split into four groups based on the steps needed for the first step (here we will only talk about what was used in the technical way of the project):
+# 1. Purpose of the project
+
+  The end goal of the project is to have a synthetiser that let users program a music (note, scale, amplitude, length, effects,...).
+
+  The users will be able to do it thanks to an interface in which they will be able to program their music.
   
-  First step (Eloi/Elise)
-    The first step is to create an oscilator function that enables us to create waveforms as their four basic forms, Square, Sine, Triangle, Sawtooth
-    
-    ***code for each calculus***
-    
-  Second Step (Thomas)
-    A function to save waveform to disk, so it can be played back through a standard audio application
-    
-      ***important code to point at***
-  Third Step (Robin)
-  A function to read a section of an audio file from disk
+  This project was inspired by multiple softwares and API like Sonic Pi and its purpose is for us to improve ourselves in project making, programming in F# and working in groups.
   
-    ***important code to point at***
-    
-  Fourth Step (Romain/Théo)
-  A function to play the waveform directly without saving it to disk
+# 2. Technologies Used
+
+  For this project, we are using Visual Studio code & Visual Studio Community for our IDEs.
   
-    ***important code to point at***
+  For the sharing of program and the overall stocking of the entire project, we are using Github and the software Github Desktop.
+  
+  When it comes to the notes played, we are using the library SFML that allows us to play notes directly from our computers.
+  
+
+# 3. Interface Requirements
+
+# 4. Integrations Requirements
+
+# 5. Functions and Algorithms
