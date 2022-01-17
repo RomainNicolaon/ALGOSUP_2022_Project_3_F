@@ -16,19 +16,19 @@ open FSharp.Collections
 module main =
 
 
-    // let streamTriangle = File.Create(@"Triangle.wav")
+    let streamTriangle = File.Create(@"Triangle.wav")
     // let streamSin = File.Create(@"Sinus.wav")
-    // let streamSaw = File.Create(@"SawTooth.wav")
-    // let streamSquare = File.Create(@"Square.wav")
+    let streamSaw = File.Create(@"SawTooth.wav")
+    let streamSquare = File.Create(@"Square.wav")
 
-    // write streamSaw sawToothByte
+    write streamSaw sawToothByte
     // //write streamSin sinusByte
-    // write streamTriangle triangleByte
-    // write streamSquare squareByte
+    write streamTriangle triangleByte
+    write streamSquare squareByte
 
-    // sawTooth |> Chart.Line |> Chart.Show
-    // square |> Chart.Line |> Chart.Show
-    // triangle|> Chart.Line |> Chart.Show
+    sawTooth |> Chart.Line |> Chart.Show
+    square |> Chart.Line |> Chart.Show
+    triangle|> Chart.Line |> Chart.Show
     // sinus |> Chart.Line |> Chart.Show
     
 
@@ -60,4 +60,4 @@ module main =
     let stream = File.Create(@"test.wav")   
     
     write stream normalWave2
-    //PlaySound "test.wav"
+    PlaySound "test.wav"
