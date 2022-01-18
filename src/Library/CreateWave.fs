@@ -10,9 +10,9 @@ module CreateWave =
     let sinusByte time freq amp = //Sinusoidale
             let t = 1.+(1./44100.)
             let N = 44100. * time
-            let omega = 2. * Math.PI * freq
+            let calc = 2. * Math.PI * freq
             let points = [(0.)..t..N]
-            let points = points |> List.map(fun i -> amp * sin(omega*i))
+            let points = points |> List.map(fun i -> amp * sin(calc*i))
             points
 
     let sample x = (x + 1.)/2. * 255. |> byte
@@ -21,7 +21,7 @@ module CreateWave =
     let Frequency = 80. // Hertz
     let limit = 10000
     
-    type Note  =
+    type noteLetter  =
         | A
         | B
         | C
@@ -29,7 +29,7 @@ module CreateWave =
         | E
         | F
         | G
-    let NoteLetter note  = 
+    let Note note  = 
                 match note with
                 | A -> 440.
                 | B -> 493.88

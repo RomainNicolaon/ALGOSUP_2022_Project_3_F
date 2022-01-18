@@ -2,8 +2,6 @@
 
 
 open System.IO
-open System
-open SFML.Audio
 open System.Threading
 open FSharpSynthe.Library.CreateWave
 open FSharpSynthe.Library.CreateFile
@@ -31,8 +29,8 @@ module main =
     // triangle|> Chart.Line |> Chart.Show
     // sinus |> Chart.Line |> Chart.Show
     
-
-    let normalWave = sinusByte 0.1 523.3 0.6 
+// Play "Au Clair de la Lune"
+    let AuClairDeLaLune = sinusByte 0.1 523. 0.6 
                         |> List.append(sinusByte 0.3 523. 0.6)
                         |> List.append(sinusByte 0.3 523. 0.6)
                         |> List.append(sinusByte 0. 523. 0.6)
@@ -47,17 +45,19 @@ module main =
                         |> List.append(sinusByte 0.3 523. 0.6)
                         |> List.append(sinusByte 0. 523. 0.6)
                         |> List.append(sinusByte 0.3 523. 0.6)
-
-  
+                        |> List.rev
+     
 
     
 
        
-    let normalWave2 = normalWave 
+    let AuClairDeLaLune2 = 
+                     AuClairDeLaLune 
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
 
     let stream = File.Create(@"test.wav")   
     
-    write stream normalWave2
-    //PlaySound "test.wav"
+    write stream AuClairDeLaLune2
+    PlaySound "test.wav"
+    
