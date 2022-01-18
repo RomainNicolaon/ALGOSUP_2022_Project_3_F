@@ -10,6 +10,7 @@ open FSharpSynthe.Library.CreateFile
 open XPlot.GoogleCharts
 open FSharpSynthe.Library.DisplayWave
 open FSharpSynthe.Library.PlaySound
+open FSharpSynthe.Library.Filter
 open FSharp.Collections
 
 
@@ -33,20 +34,20 @@ module main =
     
 
     let normalWave = sinusByte 0.1 523.3 0.6 
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0. 523. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0.3 587. 0.6)
-                        |> List.append(sinusByte 0.3 659. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0.6 659. 0.6)
-                        |> List.append(sinusByte 0.4 587. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0. 523. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0. 523. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
+                        |> List.append(sinusByte 0.3 523. 0.6) |> reverb
+                        |> List.append(sinusByte 0.3 523. 0.6) |> reverb
+                        |> List.append(sinusByte 0. 523. 0.6) |> reverb
+                        |> List.append(sinusByte 0.3 523. 0.6) |> reverb
+                        |> List.append(sinusByte 0.3 587. 0.6) |> reverb
+                        |> List.append(sinusByte 0.3 659. 0.6) |> reverb
+                        |> List.append(sinusByte 0.3 523. 0.6) |> reverb
+                        |> List.append(sinusByte 0.6 659. 0.6) |> reverb
+                        |> List.append(sinusByte 0.4 587. 0.6) |> reverb
+                        |> List.append(sinusByte 0.3 523. 0.6) |> reverb
+                        |> List.append(sinusByte 0. 523. 0.6) |> reverb
+                        |> List.append(sinusByte 0.3 523. 0.6) |> reverb
+                        |> List.append(sinusByte 0. 523. 0.6) |> reverb
+                        |> List.append(sinusByte 0.3 523. 0.6) |> reverb
 
   
 
