@@ -1,4 +1,4 @@
-
+#  Group F's Functional Specifications
 [![made-with-FSharp](https://img.shields.io/badge/Languages%20Used:-FSharp-007acc.svg)](https://fsharp.org)
 
 # Functionnal Specification
