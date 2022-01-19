@@ -10,6 +10,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    
+    env:
+      Solution_Name: FSharpSynthe/FSharpSynthe.sln
 
     steps:
     - uses: actions/checkout@v2
