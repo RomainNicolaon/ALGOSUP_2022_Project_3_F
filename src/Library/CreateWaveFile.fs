@@ -18,7 +18,7 @@ module CreateFile =
       let sampleRate = 44100 in writer.Write(sampleRate)
       let byteRate = sampleRate in writer.Write(byteRate)
       let blockAlign = 1s in writer.Write(blockAlign)
-      let bitsPerSample = 16s in writer.Write(bitsPerSample)
+      let bitsPerSample = 8s in writer.Write(bitsPerSample)
       // data
       writer.Write("data"B)
       writer.Write(data.Length)
