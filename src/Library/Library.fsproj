@@ -10,6 +10,7 @@
     <Compile Include="CreateWave.fs" />
     <Compile Include="CreateWaveFile.fs" />
     <Compile Include="DisplayWave.fs" />
+    <Compile Include="Overdriven.fs" />
   </ItemGroup>
 
   <ItemGroup>

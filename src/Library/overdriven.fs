@@ -1,25 +1,23 @@
 namespace FSharpSynthe.Library
 
 open System
-open FSharpSynthe.Library
 
-module OverdrivenFilter =
+module OverdrivenFilter =    
 
-    // Periodic calculation for sine wave
-    // let sinus frequency = List.init limit (fun i -> Amplitude * sin((frequency/ Pi) * float i))
-    
+    let Pi = Math.PI
+    let AmplitudeBase = 1. // Measurement of its change in a single period
+    let Frequency = 80. // Hertz
+    let time = 1000 // listening time
 
-    let AmplitudeBase = 0. // Measurement of its change in a single period
-    let limit = 10000
-    let incrementation = float(1/limit)
-    let Amplitude = Array.init limit (fun i -> AmplitudeBase + incrementation)
-    let overdriven = 0.8
+    let sinus = Array.init time (fun i -> AmplitudeBase * sin((Frequency/ Pi) * float i))
 
-    let Overdriven () =
-        [for i  in Amplitude do
-            if i <= -overdriven then
-                yield -overdriven
-            if i <= overdriven then
-                yield overdriven
-            else
-                yield i]
+    let Overdriven (overdrive:float) (Waves: float array) time =
+        for i in 0.. time do
+            if Waves.[i] < -overdrive then
+                Waves.[i] <- -overdrive
+            elif Waves.[i] > overdrive then
+                Waves.[i]  <- overdrive
+        
+        sinus
+
+    let sinWave = Overdriven 0.7 sinus (time - 1)
