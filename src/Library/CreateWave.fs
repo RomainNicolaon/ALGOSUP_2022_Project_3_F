@@ -1,13 +1,9 @@
 namespace FSharpSynthe.Library
 
 open System
-open FSharpSynthe.Library
 
 module CreateWave =
 
-    // Periodic calculation for sine wave
-    // let sinus frequency = List.init limit (fun i -> Amplitude * sin((frequency/ Pi) * float i))
-    
     let sinusByte time freq amp = //Sinusoidale
             let t = 1.+(1./44100.)
             let N = 44100. * time
@@ -18,13 +14,10 @@ module CreateWave =
 
     let sample x = (x + 1.)/2. * 255. |> byte
     let Pi = Math.PI
-    let AmplitudeBase = 0. // Measurement of its change in a single period
+    let AmplitudeBase = 1. // Measurement of its change in a single period
     let Frequency = 80. // Hertz
-    let limit = 10000
-    let incrementation = float(1/limit)
-    let Amplitude = Array.init limit (fun i -> AmplitudeBase + incrementation)
-
-
+    let time = 1000 // listening time
+    
     type Note  =
         | A
         | B
@@ -44,24 +37,24 @@ module CreateWave =
                 | G -> 392.
 
 
+
     // Periodic calculation for sine wave
-    // let sinus = Array.init limit (fun i -> Amplitude * sin((Frequency/ Pi) * float i))
-    // let sinusByte = Array.init limit (fun i -> Amplitude * sin((Frequency/ Pi) * float i) |> sample)//Sinusoidale
+    let sinus = Array.init time (fun i -> AmplitudeBase * sin((Frequency/ Pi) * float i))
+    let sinusbyte = Array.init time (fun i -> AmplitudeBase * sin((Frequency/ Pi) * float i) |> sample)//Sinusoidale
+    
 
 
 
     // Periodic calculation for sawtooth wave
-    let sawTooth = Array.init limit (fun i -> (2.*Amplitude[i]/Pi)* Math.Atan(tan((2.*Pi*float i)/Frequency)))
-    let sawToothByte = Array.init limit (fun i -> (2.*Amplitude[i]/Pi)* Math.Atan(tan((2.*Pi*float i)/Frequency)) |> sample )
+    let sawTooth = Array.init time (fun i -> (2.*AmplitudeBase/Pi)* Math.Atan(tan((2.*Pi*float i)/Frequency)))
+    let sawToothbyte = Array.init time (fun i -> (2.*AmplitudeBase/Pi)* Math.Atan(tan((2.*Pi*float i)/Frequency)) |> sample )
 
 
     // Periodic calculation for triangle wave
-    let triangle = Array.init limit (fun i ->  (2.*Amplitude[i]/Pi)* Math.Asin(sin((2.*Pi*float i)/Frequency)) )
-    let triangleByte = Array.init limit (fun i ->  (2.*Amplitude[i]/Pi)* Math.Asin(sin((2.*Pi*float i)/Frequency)) |> sample )
+    let triangle = Array.init time (fun i ->  (2.*AmplitudeBase/Pi)* Math.Asin(sin((2.*Pi*float i)/Frequency)) )
+    let trianglebyte = Array.init time (fun i ->  (2.*AmplitudeBase/Pi)* Math.Asin(sin((2.*Pi*float i)/Frequency)) |> sample )
 
 
     // Periodic calculation for squrae wave
-    let square = Array.init limit (fun i -> float(Math.Sign(sin(2. * Math.PI * float i*(Frequency/float limit)))))
-    let squareByte = Array.init limit (fun i -> float(Math.Sign(sin(2. * Math.PI * float i*(Frequency/float limit))))|> sample)
-
-    
+    let square = Array.init time (fun i -> float(Math.Sign(sin(2. * Math.PI * float i*(Frequency/float time)))))
+    let squarebyte = Array.init time (fun i -> float(Math.Sign(sin(2. * Math.PI * float i*(Frequency/float time))))|> sample)
