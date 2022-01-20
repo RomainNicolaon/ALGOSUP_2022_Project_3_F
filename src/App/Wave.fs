@@ -2,8 +2,6 @@
 
 
 open System.IO
-open System
-open SFML.Audio
 open System.Threading
 open FSharpSynthe.Library.CreateWave
 open FSharpSynthe.Library.CreateFile
@@ -14,7 +12,7 @@ open FSharpSynthe.Library.Filter
 open FSharp.Collections
 
 
-module main =
+ module main = 
 
 
     // let streamTriangle = File.Create(@"Triangle.wav")
@@ -22,21 +20,20 @@ module main =
     // let streamSaw = File.Create(@"SawTooth.wav")
     // let streamSquare = File.Create(@"Square.wav")
 
-    // write streamSaw sawToothByte
-    // //write streamSin sinusByte
-    // write streamTriangle triangleByte
-    // write streamSquare squareByte
+    // write streamSaw SawtoothWave
+    // //write streamSin sinusWave
+    // write streamTriangle TriangleWave
+    // write streamSquare SquareWave
 
     // sawTooth |> Chart.Line |> Chart.Show
     // square |> Chart.Line |> Chart.Show
     // triangle|> Chart.Line |> Chart.Show
     // sinus |> Chart.Line |> Chart.Show
     
-
-    let normalWave = sinusByte 0.1 523.3 0.6 
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0. 523. 0.6)
+// Play "Au Clair de la Lune"
+     let AuClairDeLaLune = sinusWave 1. 523. 0.8 
+                        |> List.append(sinusWave 1. 523. 0.8)
+                       (*  |> List.append(sinusByte 0. 523. 0.6)
                         |> List.append(sinusByte 0.3 523. 0.6)
                         |> List.append(sinusByte 0.3 587. 0.6)
                         |> List.append(sinusByte 0.3 659. 0.6)
@@ -47,18 +44,23 @@ module main =
                         |> List.append(sinusByte 0. 523. 0.6)
                         |> List.append(sinusByte 0.3 523. 0.6)
                         |> List.append(sinusByte 0. 523. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
+                        |> List.append(sinusByte 0.3 523. 0.6)   *)
+                        |> List.rev
+                        
+     
 
-  
-
-    
-
-       
-    let normalWave2 = normalWave 
+     
+     let echo1 = createEcho  1.5 AuClairDeLaLune 0.3  
+        
+     let AuClairDeLaLune2 = 
+                     echo1 
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
 
-    let stream = File.Create(@"test.wav")   
+     let stream = File.Create(@"test.wav")   
     
-    write stream normalWave2
-    //PlaySound "test.wav"
+     let longueur = List.length(AuClairDeLaLune)
+
+     printfn "%A " longueur
+     write stream AuClairDeLaLune2
+     PlaySound "test.wav"  
