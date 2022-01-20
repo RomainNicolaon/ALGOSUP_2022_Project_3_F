@@ -10,6 +10,7 @@ open FSharpSynthe.Library.CreateFile
 open XPlot.GoogleCharts
 open FSharpSynthe.Library.DisplayWave
 open FSharpSynthe.Library.PlaySound
+open FSharpSynthe.Library.Filter
 open FSharp.Collections
 
 
