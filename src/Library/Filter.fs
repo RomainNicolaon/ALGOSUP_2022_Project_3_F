@@ -25,3 +25,21 @@ module Filter =
         let wavesum = // sum of two waves
             startmusic |> List.append(timeDelay2) |> List.append(echowave) |> List.append(EndMusic)|> List.rev
         wavesum
+
+    let Pi = Math.PI
+    let AmplitudeBase = 1. // Measurement of its change in a single period
+    let Frequency = 80. // Hertz
+    let time = 1000 // listening time
+
+    let sinus = Array.init time (fun i -> AmplitudeBase * sin((Frequency/ Pi) * float i))
+
+    let Overdriven (overdrive:float) (waves: float array) time =
+        for i in 0.. time do
+            if waves.[i] < -overdrive then
+                waves.[i] <- -overdrive
+            elif waves.[i] > overdrive then
+                waves.[i]  <- overdrive
+        
+        sinus
+
+    let sinWave = Overdriven 0.7 sinus (time - 1)
