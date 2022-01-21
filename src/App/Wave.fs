@@ -63,7 +63,7 @@ open FSharpSynthe.Library.Envelop
 
     printfn "%A " longueur
     write stream AuClairDeLaLune2
-    PlaySound "test.wav"  
+    //PlaySound "test.wav"  
 
     let test = enveloppe AuClairDeLaLune 44100. 0.5 0.1 0. 0.3 0.5
 
