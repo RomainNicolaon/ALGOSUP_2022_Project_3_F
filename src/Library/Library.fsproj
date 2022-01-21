@@ -11,6 +11,7 @@
     <Compile Include="Filter.fs" />
     <Compile Include="CreateWaveFile.fs" />
     <Compile Include="DisplayWave.fs" />
+    <Compile Include="Overdriven.fs" />
   </ItemGroup>
 
   <ItemGroup>
