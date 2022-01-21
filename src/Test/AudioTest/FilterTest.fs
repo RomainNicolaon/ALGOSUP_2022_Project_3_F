@@ -1,12 +1,12 @@
-namespace FSharpSynthe.Test
+namespace FSharpSynthe.Test.AudioTest
 
 open System
 open NUnit.Framework
 
 [<TestFixture>]
 
-type ProgramTest() =
+type FilterTest() =
 
     [<Test>]
-    member x.DummyTest () =
+    member x.EchoTest() =
         Assert.IsTrue(true)

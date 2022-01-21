@@ -57,10 +57,10 @@ open FSharp.Collections
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
 
-     let stream = File.Create(@"test.wav")   
+     let stream = File.Create(@"Examples/test.wav")   
     
      let longueur = List.length(AuClairDeLaLune)
 
      printfn "%A " longueur
      write stream AuClairDeLaLune2
-     PlaySound "test.wav"  
+     PlaySound "Examples/test.wav"
