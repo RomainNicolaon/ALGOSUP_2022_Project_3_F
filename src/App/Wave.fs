@@ -15,21 +15,6 @@ open FSharp.Collections
  module main = 
 
 
-    let streamTriangle = File.Create(@"Triangle.wav")
-    let streamSin = File.Create(@"Sinus.wav")
-    let streamSaw = File.Create(@"SawTooth.wav")
-    let streamSquare = File.Create(@"Square.wav")
-
-    write streamSaw sawToothbyte
-    write streamSin sinusbyte
-    write streamTriangle trianglebyte
-    write streamSquare squarebyte
-
-    sawTooth |> Chart.Line |> Chart.Show
-    square |> Chart.Line |> Chart.Show
-    triangle|> Chart.Line |> Chart.Show
-    sinus |> Chart.Line |> Chart.Show
-
     // let streamTriangle = File.Create(@"Triangle.wav")
     // let streamSin = File.Create(@"Sinus.wav")
     // let streamSaw = File.Create(@"SawTooth.wav")
@@ -44,7 +29,6 @@ open FSharp.Collections
     // square |> Chart.Line |> Chart.Show
     // triangle|> Chart.Line |> Chart.Show
     // sinus |> Chart.Line |> Chart.Show
-
     
 // Play "Au Clair de la Lune"
      let AuClairDeLaLune = sinusWave 1. 523. 0.8 
@@ -63,12 +47,7 @@ open FSharp.Collections
                         |> List.append(sinusByte 0.3 523. 0.6)   *)
                         |> List.rev
                         
-
-    
-
-    let normalWave2 = normalWave 
-                    |> List.map sample 
-                    |> Microsoft.FSharp.Collections.List.toArray
+     
 
      
      let echo1 = createEcho  1.5 AuClairDeLaLune 0.3  
@@ -78,13 +57,8 @@ open FSharp.Collections
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
 
-
      let stream = File.Create(@"test.wav")   
     
-
-    write stream normalWave2
-    PlaySound "test.wav"
-
      let longueur = List.length(AuClairDeLaLune)
 
      printfn "%A " longueur

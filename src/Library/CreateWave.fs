@@ -19,8 +19,6 @@ module CreateWave =
     let Frequency = 80. // Hertz
     let time = 1000 // listening time
 
-    let Pi = Math.PI
-
     
     // Periodic calculation for sine wave
     let sinusWave  time freq amp =
