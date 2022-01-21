@@ -1,8 +1,8 @@
 bin/
 obj/
-.fake
-.ionide
-.DS_Store
+*.fake
+*.ionide
+*.DS_Store
 *.json
 *.xml
-FSharpSynthe
+*.vs
