@@ -10,7 +10,7 @@ open FSharpSynthe.Library.DisplayWave
 open FSharpSynthe.Library.PlaySound
 open FSharpSynthe.Library.Filter
 open FSharp.Collections
-
+open FSharpSynthe.Library.Envelop
 
  module main = 
 
@@ -31,7 +31,7 @@ open FSharp.Collections
     // sinus |> Chart.Line |> Chart.Show
     
 // Play "Au Clair de la Lune"
-     let AuClairDeLaLune = sinusWave 1. 523. 0.8 
+    let AuClairDeLaLune = sinusWave 1. 523. 0.8 
                         |> List.append(sinusWave 1. 523. 0.8)
                        (*  |> List.append(sinusByte 0. 523. 0.6)
                         |> List.append(sinusByte 0.3 523. 0.6)
@@ -50,17 +50,26 @@ open FSharp.Collections
      
 
      
-     let echo1 = createEcho  1.5 AuClairDeLaLune 0.3  
+    let echo1 = createEcho  1.5 AuClairDeLaLune 0.3  
         
-     let AuClairDeLaLune2 = 
+    let AuClairDeLaLune2 = 
                      echo1 
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
 
-     let stream = File.Create(@"test.wav")   
+    let stream = File.Create(@"test.wav")   
     
-     let longueur = List.length(AuClairDeLaLune)
+    let longueur = List.length(AuClairDeLaLune)
 
-     printfn "%A " longueur
-     write stream AuClairDeLaLune2
-     PlaySound "test.wav"  
+    printfn "%A " longueur
+    write stream AuClairDeLaLune2
+    //PlaySound "test.wav"  
+
+    let test = enveloppe AuClairDeLaLune 44100. 0.5 0.1 0. 0.3 0.5
+
+    let test2 = 
+                     test
+                     |> List.map sample 
+                     |> Microsoft.FSharp.Collections.List.toArray
+    let stream2 = File.Create(@"Enveloptest.wav")  
+    write stream2 test2
