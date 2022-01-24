@@ -57,7 +57,7 @@ module main =
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
 
-    let stream = File.Create(@"test.wav")   
+    let stream = File.Create(@"../Examples/test.wav")   
     
     let longueur = List.length(AuClairDeLaLune)
 
@@ -71,5 +71,5 @@ module main =
                      test
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
-    let stream2 = File.Create(@"Enveloptest.wav")  
+    let stream2 = File.Create(@"../Examples/Enveloptest.wav")  
     write stream2 test2
