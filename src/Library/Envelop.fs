@@ -4,7 +4,9 @@ namespace FSharpSynthe.Library
 
 module Envelop =
 
-// enveloppe stuff
+    open System
+
+    // enveloppe stuff
     let pinchAmp (data:List<float>) (dataPoints0: List<float * float>) (sampleRate:float)=
         let dataPoints = if (fst dataPoints0[0] <> 0.) then (0., 0.) :: dataPoints0 else dataPoints0
 

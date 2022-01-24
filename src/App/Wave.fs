@@ -12,7 +12,7 @@ open FSharpSynthe.Library.Filter
 open FSharp.Collections
 open FSharpSynthe.Library.Envelop
 
- module main = 
+module main = 
 
 
     // let streamTriangle = File.Create(@"Triangle.wav")
@@ -30,7 +30,7 @@ open FSharpSynthe.Library.Envelop
     // triangle|> Chart.Line |> Chart.Show
     // sinus |> Chart.Line |> Chart.Show
     
-// Play "Au Clair de la Lune"
+    // Play "Au Clair de la Lune"
     let AuClairDeLaLune = sinusWave 1. 523. 0.8 
                         |> List.append(sinusWave 1. 523. 0.8)
                        (*  |> List.append(sinusByte 0. 523. 0.6)
