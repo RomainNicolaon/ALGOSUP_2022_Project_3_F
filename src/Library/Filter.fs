@@ -26,20 +26,17 @@ module Filter =
             startmusic |> List.append(timeDelay2) |> List.append(echowave) |> List.append(EndMusic)|> List.rev
         wavesum
 
-    let Pi = Math.PI
-    let AmplitudeBase = 1. // Measurement of its change in a single period
-    let Frequency = 80. // Hertz
-    let time = 1000 // listening time
+    let flanger (wave: list<float>) = 
+        let effect = [for i in 0 .. wave.Length do if i%10 = 0 then yield 0. else yield  wave.Item(i)] 
+        effect 
+    
 
-    let sinus = Array.init time (fun i -> AmplitudeBase * sin((Frequency/ Pi) * float i))
+    let overdriven (wave: list<float>) (overdriven: float) =
+        let effect1 = [for i in 0 .. wave.Length-1 do if  wave.Item(i)>=overdriven  then yield overdriven else yield  wave.Item(i)]
+        let negative = -overdriven    
+        let effect2 = [for i in 0 .. effect1.Length-1 do if  effect1.Item(i)<=negative  then yield negative else yield  effect1.Item(i)]
+        effect2
 
-    let Overdriven (overdrive:float) (waves: float array) time =
-        for i in 0.. time do
-            if waves.[i] < -overdrive then
-                waves.[i] <- -overdrive
-            elif waves.[i] > overdrive then
-                waves.[i]  <- overdrive
-        
-        sinus
-
-    let sinWave = Overdriven 0.7 sinus (time - 1)
+    let chords  (wave: list<float>)  (wave2: list<float>) = 
+        let effect = [for i in 0 .. wave.Length-1 do yield wave.Item(i)+wave2.Item(i)]|> List.map(fun x -> x/2.)
+        effect    
