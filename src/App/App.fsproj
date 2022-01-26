@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ConsoleAPI.fs" />
     <Compile Include="Wave.fs" />
   </ItemGroup>
   <ItemGroup>

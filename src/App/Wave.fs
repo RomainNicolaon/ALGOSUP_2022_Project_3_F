@@ -1,18 +1,17 @@
 ﻿namespace FSharpSynthe.App
 
-
-open System.IO
-open System.Threading
-open FSharpSynthe.Library.CreateWave
-open FSharpSynthe.Library.CreateFile
-open XPlot.GoogleCharts
-open FSharpSynthe.Library.DisplayWave
-open FSharpSynthe.Library.PlaySound
-open FSharpSynthe.Library.Filter
-open FSharp.Collections
-open FSharpSynthe.Library.Envelop
-
 module main = 
+    open System.IO
+    open System.Threading
+    open FSharpSynthe.CreateWave
+    open FSharpSynthe.CreateFile
+    open XPlot.GoogleCharts
+    open FSharpSynthe.DisplayWave
+    open FSharpSynthe.PlaySound
+    open FSharpSynthe.Filter
+    open FSharp.Collections
+    open FSharpSynthe.Envelop
+
 
 
     // let streamTriangle = File.Create(@"Triangle.wav")

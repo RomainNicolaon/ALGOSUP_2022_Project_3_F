@@ -1,8 +1,8 @@
-namespace FSharpSynthe.Library
+namespace FSharpSynthe
 
 module DisplayWave =
     open XPlot.GoogleCharts
-    open FSharpSynthe.Library.CreateWave
+    open FSharpSynthe.CreateWave
     // let Char data =
     //         data
     //         |>Chart.Line
