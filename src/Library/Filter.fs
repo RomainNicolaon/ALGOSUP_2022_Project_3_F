@@ -58,4 +58,12 @@ module Filter =
         let final = 
             [for i in 0 .. wave.Length-1 do yield (wave.Item(i)+revrb1final.Item(i)+revrb2final.Item(i)+revrb3final.Item(i))/4.]
         final
-        
+
+
+    
+    let lowpass (wave: list<float>)=
+        let filterlp = 
+            [for i in 0 .. wave.Length do
+                 wave[i] := ß * x[i] + (1-ß) * wave[i-1]]
+           
+            
