@@ -14,57 +14,68 @@ open FSharpSynthe.Library.Envelop
 
 module main = 
 
-
-    // let streamTriangle = File.Create(@"Triangle.wav")
-    // let streamSin = File.Create(@"Sinus.wav")
-    // let streamSaw = File.Create(@"SawTooth.wav")
-    // let streamSquare = File.Create(@"Square.wav")
-
-    // write streamSaw SawtoothWave
-    // //write streamSin sinusWave
-    // write streamTriangle TriangleWave
-    // write streamSquare SquareWave
-
-    // sawTooth |> Chart.Line |> Chart.Show
-    // square |> Chart.Line |> Chart.Show
-    // triangle|> Chart.Line |> Chart.Show
-    // sinus |> Chart.Line |> Chart.Show
     
     // Play "Au Clair de la Lune"
-    let AuClairDeLaLune = sinusWave 1. 523. 0.8 
-                        |> List.append(sinusWave 1. 523. 0.8)
-                       (*  |> List.append(sinusByte 0. 523. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0.3 587. 0.6)
-                        |> List.append(sinusByte 0.3 659. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0.6 659. 0.6)
-                        |> List.append(sinusByte 0.4 587. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0. 523. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)
-                        |> List.append(sinusByte 0. 523. 0.6)
-                        |> List.append(sinusByte 0.3 523. 0.6)   *)
+    let AuClairDeLaLune = sinusWave 0.3 523. 1 // G
+                        |> List.append(sinusWave 0.05 0 1) // Pose 0.1
+                        |> List.append(sinusWave 0.3 523. 1) // G
+                        |> List.append(sinusWave 0.1 0 1) // Pose 0.2
+                        |> List.append(sinusByte 0.3 523. 1)// G
+                        |> List.append(sinusWave 0.05 0 1) // Pose 0.1
+                        |> List.append(sinusByte 0.3 587. 0.6) // A
+                        |> List.append(sinusWave 0.05 0 1)// Pose 0.1
+                        |> List.append(sinusByte 0.3 659. 0.6) // B
+                        |> List.append(sinusWave 0.15 0 1)// Pose 0.1
+                        |> List.append(sinusByte 0.3 587. 0.6) //A
+                        |> List.append(sinusWave 0.1 0 1)// Pose 0.2
+                        |> List.append(sinusByte 0.3 523. 0.6) //G
+                        |> List.append(sinusWave 0.05 0 1)// Pose 0.1
+                        |> List.append(sinusByte 0.3 659. 0.6) //B
+                        |> List.append(sinusWave 0.05 0 1)// Pose 0.1
+                        |> List.append(sinusByte 0.3 587. 0.6) //A
+                        |> List.append(sinusWave 0.05 0 1)// Pose 0.1
+                        |> List.append(sinusByte 0.3 587. 0.6) //A
+                        |> List.append(sinusWave 0.1 0 1)// Pose 0.2
+                        |> List.append(sinusByte 0.3 523. 0.6) //G
+                        // |> List.append(sinusWave 0.1 0 1)// Pose 0.1
+                        // |> List.append(sinusByte 0.3 523. 0.6) //G
+                        // |> List.append(sinusWave 0.2 0 1)// Pose 0.2
+                        // |> List.append(sinusByte 0.3 523. 0.6) //G
+                        // |> List.append(sinusWave 0.1 0 1)// Pose 0.1
+                        // |> List.append(sinusByte 0.3 523. 0.6) //G
+                        // |> List.append(sinusWave 0.1 0 1)// Pose 0.1
+                        // |> List.append(sinusByte 0.3 587. 0.6) //A
+                        // |> List.append(sinusWave 0.1 0 1)// Pose 0.1
+                        // |> List.append(sinusByte 0.3 659. 0.6) //B
+                        // |> List.append(sinusWave 0.2 0 1)// Pose 0.2
+                        // |> List.append(sinusByte 0.3 587. 0.6) //A
+                        // |> List.append(sinusWave 0.1 0 1)// Pose 0.1
+                        // |> List.append(sinusByte 0.3 523. 0.6) //G
+                        // |> List.append(sinusWave 0.1 0 1)// Pose 0.1
+                        // |> List.append(sinusByte 0.3 659. 0.6) // B
+                        // |> List.append(sinusWave 0.1 0 1)// Pose 0.1
+                        // |> List.append(sinusByte 0.3 587. 0.6) //A
+                        // |> List.append(sinusWave 0.2 0 1)// Pose 0.2
+                        // |> List.append(sinusByte 0.3 587. 0.6) //A
+                        // |> List.append(sinusWave 0.1 0 1)// Pose 0.1
+                        // |> List.append(sinusByte 0.3 523. 0.6) //G
                         |> List.rev
-                        
-     
+   
+   
+               
 
      
     let echo1 = createEcho  1.5 AuClairDeLaLune 0.3  
         
     let AuClairDeLaLune2 = 
-                     echo1 
+                     AuClairDeLaLune 
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
 
-    let stream = File.Create(@"../Examples/test.wav")   
-    
-    let longueur = List.length(AuClairDeLaLune)
-
-    printfn "%A " longueur
+    let stream = File.Create(@"../Examples/test.wav") 
     write stream AuClairDeLaLune2
-    //PlaySound "test.wav"  
 
+    //PlaySound "test.wav"  
     let test = enveloppe AuClairDeLaLune 44100. 0.5 0.1 0. 0.3 0.5
 
     let test2 = 
@@ -73,4 +84,7 @@ module main =
                      |> Microsoft.FSharp.Collections.List.toArray
     let stream2 = File.Create(@"../Examples/Enveloptest.wav")  
     write stream2 test2
+
+    let longueur = List.length(AuClairDeLaLune)
+    printfn "%A " longueur
 

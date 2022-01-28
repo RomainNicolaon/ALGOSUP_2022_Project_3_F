@@ -4,25 +4,22 @@ open System
 
 module CreateWave =
 
+    let AmplitudeBase = 1. // Measurement of its change in a single period
+    let Frequency = 80. // Hertz
+    let Pi = Math.PI
+    let time = 1000 // listening time
+
+
 
     let sinusByte time freq amp = //Sinusoidale
             let t = 1.+(1./44100.)
             let N = 44100. * time
-            let omega = 2. * Math.PI * freq
+            let omega = 2. * Pi * freq
             let points = [(0.)..t..N]
             let points = points |> List.map(fun i -> amp * sin(omega*i))
             points
 
-    
-    
-    let AmplitudeBase = 1. // Measurement of its change in a single period
-    let Frequency = 80. // Hertz
-    
 
-    
-   
-
-   
     type noteLetter  =
         | A
         | B
@@ -48,7 +45,7 @@ module CreateWave =
 
         let t = 1. + (1./44100.) 
         let N = 44100. * time 
-        let calc = 2. * Math.PI * freq  
+        let calc = 2. * Pi * freq  
         let points = [(0.)..t..N] 
         let points = points |> List.map(fun x -> amp * sin(calc*x) ) 
         // List.map(fun x -> printfn "%O" x) points |> ignore // Print all value of the list
@@ -67,14 +64,14 @@ module CreateWave =
             let t = 1.+(1./44100.)
             let N = 44100. * time
             let points = [(0.)..t..N]
-            let points = points |> List.map(fun i -> amp * 2. * asin( sin( 2.* Math.PI * t * freq))/ Math.PI)
+            let points = points |> List.map(fun i -> amp * 2. * asin( sin( 2.* Pi * t * freq))/ Pi)
             points 
 
     // Periodic calculation for squrae wave
     let SquareWave time freq amp = //Sinusoidale
             let t = 1.+(1./44100.)
             let N = 44100. * time
-            let calc = 2. * Math.PI * freq
+            let calc = 2. * Pi * freq
             let points = [(0.)..t..N]
             let points = points |> List.map(fun i -> amp * float(sign(sin(i*calc))))
             points 
