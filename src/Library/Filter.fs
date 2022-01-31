@@ -26,12 +26,7 @@ module Filter =
             startmusic |> List.append(timeDelay2) |> List.append(echowave) |> List.append(EndMusic)|> List.rev
         wavesum
 
-    let Pi = Math.PI
-    let AmplitudeBase = 1. // Measurement of its change in a single period
-    let Frequency = 80. // Hertz
-    let time = 1000 // listening time
 
-    let sinus = Array.init time (fun i -> AmplitudeBase * sin((Frequency/ Pi) * float i))
 
     let Overdriven (overdrive:float) (waves: float array) time =
         for i in 0.. time do
@@ -39,7 +34,29 @@ module Filter =
                 waves.[i] <- -overdrive
             elif waves.[i] > overdrive then
                 waves.[i]  <- overdrive
-        
-        sinus
 
-    let sinWave = Overdriven 0.7 sinus (time - 1)
+
+    let flanger (wave: list<float>) = 
+        let effect = [for i in 0 .. wave.Length do if i%10 = 0 then yield 0. else yield  wave.Item(i)] 
+        effect 
+    
+    let chords  (wave: list<float>)  (wave2: list<float>) = 
+        let effect = [for i in 0 .. wave.Length-1 do yield wave.Item(i)+wave2.Item(i)]|> List.map(fun x -> x/2.)
+        effect    
+
+    let reverb (wave: list<float>) = 
+        let revrb1 =
+            [for i in  1 .. wave.Length-1  do if i <= 4410 then yield 0. else yield wave.Item(i)  ] |> List.filter( fun x -> x <> 0.)
+        let revrb1final = sinusWave 0.1 0. 0. |> List.append(revrb1) |> List.map (fun x -> x*0.5)
+
+        let revrb2 = 
+            [for i in  1 .. wave.Length-1  do if i <= 8820 then yield 0. else yield wave.Item(i)  ] |> List.filter( fun x -> x <> 0.)
+        let revrb2final = sinusWave 0.2 0. 0. |> List.append(revrb2) |> List.map (fun x -> x*0.25)
+       
+        let revrb3 =
+            [for i in  1 .. wave.Length-1  do if i <= 13230 then yield 0. else yield wave.Item(i)  ] |> List.filter( fun x -> x <> 0.)
+        let revrb3final = sinusWave 0.3 0. 0. |> List.append(revrb3) |> List.map (fun x -> x*0.125)
+    
+        let final = 
+            [for i in 0 .. wave.Length-1 do yield (wave.Item(i)+revrb1final.Item(i)+revrb2final.Item(i)+revrb3final.Item(i))/4.]
+        final
