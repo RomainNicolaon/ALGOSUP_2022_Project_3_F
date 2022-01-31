@@ -5,6 +5,10 @@ open System
 module CreateWave =
 
     let Pi = Math.PI
+    let sample x = (x + 1.)/2. * 255. |> byte
+    let AmplitudeBase = 1. // Measurement of its change in a single period
+    let Frequency = 80. // Hertz
+    let time = 1000 // listening time
 
     let sinusByte time freq amp = //Sinusoidale
             let t = 1.+(1./44100.)

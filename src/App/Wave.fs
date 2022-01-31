@@ -8,7 +8,7 @@ module main =
     open XPlot.GoogleCharts
     open FSharpSynthe.DisplayWave
     open FSharpSynthe.PlaySound
-    open FSharpSynthe.Filter
+    open FSharpSynthe.Library.Filter
     open FSharp.Collections
     open FSharpSynthe.Envelop
 
@@ -66,9 +66,19 @@ module main =
 
     let test = enveloppe AuClairDeLaLune 44100. 0.5 0.1 0. 0.3 0.5
 
+
     let test2 = 
                      test
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
-    let stream2 = File.Create(@"../Examples/Enveloptest.wav")  
+    let stream2 = File.Create(@"../Examples/Enveloptest.wav") 
+     
     write stream2 test2
+
+    let testlowpass = lowPass 4100 4000 (test)
+    let testlowpass2 = 
+                     testlowpass
+                     |> List.map sample 
+                     |> Microsoft.FSharp.Collections.List.toArray
+    
+    write stream testlowpass2
