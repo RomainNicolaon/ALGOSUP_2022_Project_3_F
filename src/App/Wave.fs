@@ -16,27 +16,27 @@ module main =
 
     
     // Play "Au Clair de la Lune"
-    let AuClairDeLaLune = sinusWave 0.3 523. 1 // G
+    let AuClairDeLaLune = sinusWave 0.3 (Note G) 1 // G
                         |> List.append(sinusWave 0.05 0 1) // Pose 0.1
-                        |> List.append(sinusWave 0.3 523. 1) // G
+                        |> List.append(sinusWave 0.3 (Note G) 1) // G
                         |> List.append(sinusWave 0.1 0 1) // Pose 0.2
-                        |> List.append(sinusByte 0.3 523. 1)// G
+                        |> List.append(sinusByte 0.3 (Note G) 1)// G
                         |> List.append(sinusWave 0.05 0 1) // Pose 0.1
-                        |> List.append(sinusByte 0.3 587. 0.6) // A
+                        |> List.append(sinusByte 0.3 (Note A) 0.6) // A
                         |> List.append(sinusWave 0.05 0 1)// Pose 0.1
-                        |> List.append(sinusByte 0.3 659. 0.6) // B
+                        |> List.append(sinusByte 0.3 (Note B) 0.6) // B
                         |> List.append(sinusWave 0.15 0 1)// Pose 0.1
-                        |> List.append(sinusByte 0.3 587. 0.6) //A
+                        |> List.append(sinusByte 0.3 (Note A) 0.6) //A
                         |> List.append(sinusWave 0.1 0 1)// Pose 0.2
-                        |> List.append(sinusByte 0.3 523. 0.6) //G
+                        |> List.append(sinusByte 0.3 (Note G) 0.6) //G
                         |> List.append(sinusWave 0.05 0 1)// Pose 0.1
-                        |> List.append(sinusByte 0.3 659. 0.6) //B
+                        |> List.append(sinusByte 0.3 (Note B) 0.6) //B
                         |> List.append(sinusWave 0.05 0 1)// Pose 0.1
-                        |> List.append(sinusByte 0.3 587. 0.6) //A
+                        |> List.append(sinusByte 0.3 (Note A) 0.6) //A
                         |> List.append(sinusWave 0.05 0 1)// Pose 0.1
-                        |> List.append(sinusByte 0.3 587. 0.6) //A
+                        |> List.append(sinusByte 0.3 (Note A) 0.6) //A
                         |> List.append(sinusWave 0.1 0 1)// Pose 0.2
-                        |> List.append(sinusByte 0.3 523. 0.6) //G
+                        |> List.append(sinusByte 0.3 (Note G) 0.6) //G
                         // |> List.append(sinusWave 0.1 0 1)// Pose 0.1
                         // |> List.append(sinusByte 0.3 523. 0.6) //G
                         // |> List.append(sinusWave 0.2 0 1)// Pose 0.2

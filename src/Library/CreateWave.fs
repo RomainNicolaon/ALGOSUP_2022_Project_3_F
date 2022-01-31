@@ -30,13 +30,13 @@ module CreateWave =
         | G
     let Note note  = 
                 match note with
-                | A -> 440.
-                | B -> 493.88
-                | C -> 261.63
-                | D -> 293.66
-                | E -> 329.63
-                | F -> 349.23
-                | G -> 392.
+                | A -> 587.
+                | B -> 659.
+                | C -> 426.63
+                | D -> 459.
+                | E -> 495.
+                | F -> 514.
+                | G -> 523.
 
 
     // Periodic calculation for sine wave
