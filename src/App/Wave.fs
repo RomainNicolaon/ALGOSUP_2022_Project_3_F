@@ -48,3 +48,11 @@ module main =
 
     let longueur = List.length(AuClairDeLaLune)
     printfn "%A " longueur
+    
+    let lowpasstest = lowPass 44100 400 AuClairDeLaLune
+    let lowpasstest2 = 
+                     lowpasstest 
+                     |> List.map sample 
+                     |> Microsoft.FSharp.Collections.List.toArray
+    let stream2 = File.Create(@"../Examples/Lune-Song-lowpass.wav") 
+    write stream2 lowpasstest2

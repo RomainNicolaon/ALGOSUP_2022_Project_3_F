@@ -60,3 +60,20 @@ module Filter =
         let final = 
             [for i in 0 .. wave.Length-1 do yield (wave.Item(i)+revrb1final.Item(i)+revrb2final.Item(i)+revrb3final.Item(i))/4.]
         final
+    
+    
+    let lowPass sampleRate cutoffFreq (wave:List<float>) =
+        let RC = 1. / (2. * Math.PI * cutoffFreq)
+        let dt = 1. / sampleRate
+        let alpha = dt / (RC + dt)
+        let second_alpha = 1. - alpha
+
+        let mutable last = alpha * wave.[0]
+        [last] @ (
+            wave
+            |> List.tail
+            |> List.map (fun x ->
+                last <- alpha * x + second_alpha * last
+                last
+            )
+        )
