@@ -22,25 +22,64 @@ module CreateWave =
 
     type noteLetter  =
         | A
+        | As
+
         | B
+        | B2
+
         | C
+        | Cs
+        | C2
+        | Cs2
+
         | D
+        | Ds
+
         | E
+
         | F
+        | Fs
+
         | G
+        | Gs
+
     let Note note  = 
                 match note with
-                | A -> 587.
-                | B -> 659.
-                | C -> 426.63
-                | D -> 459.
-                | E -> 495.
-                | F -> 514.
-                | G -> 523.
+                // AuClairDeLaLune notes
+                // | A -> 587.
+                // | B -> 659.
+                // | C -> 426.63
+                // | D -> 459.
+                // | E -> 495.
+                // | F -> 514.
+                // | G -> 523.
+                
+                // Titanic notes
+                | A -> 880. //LA
+                | As -> 932. //LA#
 
+                | B -> 493.//SI
+                | B2 -> 987. //SI2
+
+                | C -> 523. //DO
+                | Cs -> 554. //DO#
+                | C2 -> 1046. //DO2
+                | Cs2 -> 1108. //DO2#
+
+                | D -> 587. //RE
+                | Ds -> 622. //RE#
+
+                | E -> 659. //MI
+
+                | F -> 698. //FA
+                | Fs -> 739. //FA#
+
+                | G -> 783. //SOL
+                | Gs -> 830. //SOL#
+                
 
     // Periodic calculation for sine wave
- // Periodic calculation for sine wave
+    // Periodic calculation for sine wave
     let sinusWave  time freq amp =
 
         let t = 1. + (1./44100.) 
