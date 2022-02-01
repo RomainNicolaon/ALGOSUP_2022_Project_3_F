@@ -28,12 +28,11 @@ module Filter =
 
 
 
-    let Overdriven (overdrive:float) (waves: float array) time =
-        for i in 0.. time do
-            if waves.[i] < -overdrive then
-                waves.[i] <- -overdrive
-            elif waves.[i] > overdrive then
-                waves.[i]  <- overdrive
+    let overdriven (wave: list<float>) (overdriven: float) =
+        let effect1 = [for i in 0 .. wave.Length-1 do if  wave.Item(i)>=overdriven  then yield overdriven else yield  wave.Item(i)]
+        let negative = -overdriven
+        let effect2 = [for i in 0 .. effect1.Length-1 do if  effect1.Item(i)<=negative  then yield negative else yield  effect1.Item(i)]
+        effect2
 
 
     let flanger (wave: list<float>) = 
