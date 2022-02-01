@@ -8,11 +8,9 @@
 <summary>Table of Contents</summary>
   
 - [Project scope](#project-scope)
-    [Goals](#goals)
-    [Features](#features)
-    [Task](#task)
-    [Deliverable](#deliverable)
-    [Deadlines](#deadlines)
+    1.[Goals](#goals)
+    2.[Features](#features)
+    3.[Deadlines](#deadlines)
 - [Risk and assumptions](#risk-and-assumptions)
 - [Product overview](#product-overview)
 - [Uses cases](#uses-cases)
