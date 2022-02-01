@@ -1,63 +1,111 @@
-# Project-3-Sound-Synthetizer
+<h1>Project-3-Sound-Synthetizer</h1>
 
-<details><summary>Table of Contents</summary>
+FSharpSyntheLibrary is a simple cross-platform(windows, mac) library multimedia. It is writtent in F# so you can use it in .NET core.
+
+<h2>Authors</h2>
+
+- Eloi Priol
+- Elise Gautier
+- Robin Debry
+- Theo Trouvé
+- Romain Nicolaon
+- Thomas Planchard 
+
+<h2>Download</h2>
+For the moment you can't download it because it's an alpha version but for the future you are will able to download it with 2 different nuggets. One advanced and one simple 
+
+<h2>Learn</h2>
+To learn FSharpSynthe you can follow the tutorial
+
+<h2>Code Example</h2>
+You can run these examples in F# in Visual Studio. Make sure you build the project first. After that, simply copy and paste the code over in each of the following code examples. If you want to see the wave of each song. Download Audacity on this link : https://audacity.fr/ and put the file create by the code in Audacity to see the wave. 
+
+<h3>Create the 4 basic wave forms and save it in a file</h3>
   
-- [Technologies' Badges](#technologies-badges)
-- [1 First Part](#1-first-part)
-  - 1.1 First Step
-  - 1.2 Second Step
-  - 1.3 Third Step
-  - 1.4 Fourth Step
-- [2 Second Part](#2-second-part)
-</details>
+- Generate a .wav file containing a sawtooth wave or a sinus wave or a triangular wave or a square wave play in mono. Each wave last 1 second with a frequency of 523. and an amplitude of 0.8
 
-# Technologies' Badges
-[![made-with-FSharp](https://img.shields.io/badge/Languages%20Used:-FSharp-007acc.svg)](https://fsharp.org)
+```f#
+open FSharpSynth.CreateWaveFile
+open FSharpSynth.CreateWave
 
-[![made-with-Visual-Studio-Code](https://img.shields.io/badge/Softwares%20Used:-Visual%20Studio%20Code-0078d7.svg)](https://code.visualstudio.com) [![made-with-Visual-Studio-Community](https://img.shields.io/badge/Visual%20Studio%20Community-5d2b90.svg)](https://visualstudio.microsoft.com/vs/community/)
 
-On this README, we will write every step of our project until the end and update it every time something has changed or when a task has ended or not
+write "saw" sawtoothWave 1. 523. 0.8 
+write "sine" sinusWave 1. 523. 0.8 
+write "triangle" triangleWave 1. 523. 0.8 
+write "square" squareWave 1. 523. 0.8 
+```
 
-# 1. First Part
+<h3>Play an audio file</h3> 
 
-   We split into four groups based on the steps needed for the first step:
+- Play a audio file just by giving the path to the file 
   
-## 1.1. First Step
-    
-   The first step is to create an oscilator function that enables us to create waveforms as their four basic forms, Square, Sine, Triangle, Sawtooth
-    
-   - [x] Square Wave
-   - [x] Sinus Wave
-   - [x] Triangle Wave
-   - [x] Sawtooth Wave
+```f#
+open FSharpSynthe.PlaySound
 
-   ***code for each calculus***
+PlaySound "saw.wav"
+```
 
-## 1.2. Second Step
-  A function to save waveform to disk, so it can be played back through a standard audio application
+<h3>Change amplitude with a fixe amount</h3>
+
+- Modify a wave amplitude with a fixe amount
+```f#
+open FSharpSynthe.Filter
+
+amplitude (wave:list<float>) (amp:float)
+```
+
+
+<h3>Add echo to a song</h3>
+
+- Apply directly a echo to a song if you want to see what happen on the wave put your audio file on Audacity. You can change the delay , and the amplitude of your echo.
+
+```f#
+open FSharpSynth.Filter
+
+createEcho (delay : float) (wave : list<float>) (amp : float)
+```
+
+<h3>Add Chords effect</h3>
+
+- Apply directly a chords effect with 2 waves different.
   
-  - [x] Step 1
+```f#
+open FSharpSynth.Filter
 
-  ***important code to point at***
+chords  (wave: list<float>)  (wave2: list<float>)
+```
+
+
+<h3>Add overdriven effect</h3>
+
+- Aplly an overdriven effect to a wave. You can setup your overdriven.
+
+```f#
+open FSharpSynth.Filter
+
+overdriven (wave: list<float>) (overdriven: float)
+```
+
+<h3>Add flanger effect</h3>
+
+- Apply a flanger effect to a wave 
   
-## 1.3. Third Step
-  A function to read a section of an audio file from disk
+```f#
+open FSharpSynth.Filter
+
+flanger (wave: list<float>)
+
+```
+
+
+<h3>add reverb effect</h3>
+
+
+- Apply a reverb effect to a wave 
   
-  - [x] Step 1
-  
-  ***important code to point at***
+```f#
+open FSharpSynth.Filter
 
-## 1.4. Fourth Step
+reverb (wave: list<float>)
 
-  A function to play the waveform directly without saving it to disk
-
-  - [ ] Step 1
-
-   ***important code to point at***
-   
-# 2. Second Part
-
-
-## Contributors
-
-[![contributors](https://contrib.rocks/image?repo=RomainNicolaon/ALGOSUP_2022_Project_3_F)](https://github.com/RomainNicolaon/ALGOSUP_2022_Project_3_F/graphs/contributors)
+```
