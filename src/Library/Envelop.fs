@@ -1,4 +1,4 @@
-namespace FSharpSynthe.Library
+namespace FSharpSynthe
 
 
 

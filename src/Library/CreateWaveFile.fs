@@ -27,6 +27,11 @@ module CreateFile =
    let sample x = (x + 1.)/2. * 255. |> byte
    let mixsong listofnote = 
                      listofnote
+                     |> List.rev
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
+   let mixnote note =
+                   note
+                   |> List.map sample 
+                   |> Microsoft.FSharp.Collections.List.toArray
       

@@ -1,13 +1,10 @@
-namespace FSharpSynthe.Library
+namespace FSharpSynthe
 
 open System
 
 module CreateWave =
 
     let Pi = Math.PI
-    let AmplitudeBase = 1. // Measurement of its change in a single period
-    let Frequency = 80. // Hertz
-    let time = 1000 // listening time
 
     type noteLetter  =
         | A

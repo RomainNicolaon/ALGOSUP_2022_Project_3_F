@@ -3,14 +3,14 @@
 
 open System.IO
 open System.Threading
-open FSharpSynthe.Library.CreateWave
-open FSharpSynthe.Library.CreateFile
+open FSharpSynthe.CreateWave
+open FSharpSynthe.CreateFile
 open XPlot.GoogleCharts
 
-open FSharpSynthe.Library.PlaySound
-open FSharpSynthe.Library.Filter
+open FSharpSynthe.PlaySound
+open FSharpSynthe.Filter
 open FSharp.Collections
-open FSharpSynthe.Library.Envelop
+open FSharpSynthe.Envelop
 
 module main = 
     // Play "Au Clair de la Lune"
@@ -32,13 +32,13 @@ module main =
                         |> List.append(sinusWave 0.05 0 1)// Pose 0.1
                         |> List.append(sinusWave 0.3 (Note A) 0.6) //A
                         |> List.append(sinusWave 0.05 0 1)// Pose 0.1
-                        |> List.append(sinusWave 0.3 (Note A) 0.6) //A
+                        |> List.append(sinusWave 0.3 (Note A) 0.6) //A 
                         |> List.append(sinusWave 0.1 0 1)// Pose 0.2
                         |> List.append(sinusWave 0.3 (Note G) 0.6) //G
                         |> List.rev
 
                         
-    let AuClairDeLaLune2 = 
+   (*  let AuClairDeLaLune2 = 
                      AuClairDeLaLune 
                      |> List.map sample 
                      |> Microsoft.FSharp.Collections.List.toArray
@@ -56,3 +56,8 @@ module main =
                      |> Microsoft.FSharp.Collections.List.toArray
     let stream2 = File.Create(@"../Examples/Lune-Song-lowpass.wav") 
     write stream2 lowpasstest2
+ *)
+    let test = reverb (sinusWave 1. 523. 1.) |> mixnote
+    
+
+    write "../Examples/reverb" test

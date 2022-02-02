@@ -2,7 +2,7 @@ namespace FSharpSynthe
 
 module DisplayWave =
     open XPlot.GoogleCharts
-    open FSharpSynthe.Library.CreateWave
+    open FSharpSynthe.CreateWave
     let display (wave:List<float>) =
             wave
             |>Chart.Line
