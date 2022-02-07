@@ -1,10 +1,11 @@
-namespace FSharpSynthe.Library
+namespace FSharpSynthe
 
 open System.IO
 
 module CreateFile =
 
-   let write stream (data:byte[]) =
+   let write (filename: string) (data:byte[]) = 
+      let stream = File.Create(filename+".wav") 
       use writer = new BinaryWriter(stream)
       // RIFF
       writer.Write("RIFF"B)
@@ -24,4 +25,13 @@ module CreateFile =
       writer.Write(data.Length)
       writer.Write(data)
    let sample x = (x + 1.)/2. * 255. |> byte
+   let mixsong listofnote = 
+                     listofnote
+                     |> List.rev
+                     |> List.map sample 
+                     |> Microsoft.FSharp.Collections.List.toArray
+   let mixnote note =
+                   note
+                   |> List.map sample 
+                   |> Microsoft.FSharp.Collections.List.toArray
       
