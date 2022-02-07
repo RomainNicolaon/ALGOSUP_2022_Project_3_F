@@ -57,7 +57,7 @@ module main =
     let stream2 = File.Create(@"../Examples/Lune-Song-lowpass.wav") 
     write stream2 lowpasstest2
  *)
-    let test = reverb (sinusWave 1. 523. 1.) |> mixnote
+    let test = createEcho 0.5 (sinusWave 1. 523. 1.) 1. |> mixnote
     
 
-    write "../Examples/reverb" test
+    write "../Examples/test" test
