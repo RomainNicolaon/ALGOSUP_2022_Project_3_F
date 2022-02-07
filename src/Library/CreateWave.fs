@@ -34,14 +34,18 @@ module CreateWave =
 
         | D
         | Ds
+        | Ds2
 
         | E
+        | E2
 
         | F
         | Fs
+        | Fs2
 
         | G
         | Gs
+        | Gs2
 
     let Note note  = 
                 match note with
@@ -68,14 +72,19 @@ module CreateWave =
 
                 | D -> 587. //RE
                 | Ds -> 622. //RE#
+                | Ds2 -> 1244. //RE2#
 
                 | E -> 659. //MI
+                | E2 -> 1318. //MI2
 
                 | F -> 698. //FA
                 | Fs -> 739. //FA#
+                | Fs2 -> 1479. //FA2#
 
                 | G -> 783. //SOL
                 | Gs -> 830. //SOL#
+                | Gs2 -> 1661. //SOL2#
+
                 
 
     // Periodic calculation for sine wave
