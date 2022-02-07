@@ -48,7 +48,7 @@ module CreateWave =
             let t = 1.+(1./44100.)
             let N = 44100. * time
             let points = [(0.)..t..N]
-            let points = points |> List.map(fun i -> amp * 2. * asin( sin( 2.* Pi * t * freq))/ Pi)
+            let points = points |> List.map(fun i -> amp * 2. * asin( sin( 2.* Pi * i * freq))/ Pi)
             points 
 
     // Periodic calculation for squrae wave
