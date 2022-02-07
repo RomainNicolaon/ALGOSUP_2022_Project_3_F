@@ -10,7 +10,6 @@ open XPlot.GoogleCharts
 open FSharpSynthe.PlaySound
 open FSharpSynthe.Filter
 open FSharp.Collections
-open FSharpSynthe.Envelop
 
 module main = 
     // Play "Au Clair de la Lune"

@@ -18,8 +18,8 @@ module Filter =
             [for i in  1 .. wave.Length-1  do if i <= timeDelay then yield wave.Item(i) else yield 0.  ] |> List.filter( fun x -> x <> 0.)
         let echowave =        
             [for i in  1 .. wave.Length-1  do if i <= timeDelay then yield wave.Item(i) else yield 0.  ] |> List.filter( fun x -> x <> 0.) 
-        let echowave =  amplitude echowave amp
-        let echowave2 =  amplitude echowave (amp/2.) 
+        let echowave =  amplitude echowave (amp/2.) 
+        let echowave2 =  amplitude echowave (amp/4.) 
 
         let EndMusic = 
             [for i in timeDelay .. wave.Length-1 do yield wave.Item(i) ] 
