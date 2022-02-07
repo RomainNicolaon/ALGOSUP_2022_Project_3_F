@@ -12,9 +12,12 @@
     <Compile Include="CreateWaveFile.fs" />
     <Compile Include="DisplayWave.fs" />
     <Compile Include="Envelop.fs" />
+    <Compile Include="AmplitudeModulator.fs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MathNet.Numerics" Version="4.15.0" />
+    <PackageReference Include="MathNet.Numerics.FSharp" Version="4.15.0" />
     <PackageReference Include="SFML.Net" Version="2.5.0" />
     <PackageReference Include="XPlot.GoogleCharts" Version="3.0.1" />
   </ItemGroup>
