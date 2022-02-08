@@ -73,3 +73,35 @@ module Filter =
                 last
             )
         )
+
+    let sinusAM time (wave:list<float>) ampLFO freqLFO=
+          let calcLFO = 2. * Pi * freqLFO
+          let t = 1.+(1./44100.)
+          let N = 44100. * time
+          let points = [(0.)..t..N-1.]
+          let sinusAM = points |> List.map(fun i -> wave[int(i)]*ampLFO*sin(calcLFO*i))
+          sinusAM
+
+                // equation to do an Amplitude Modulation
+    let sawtoothAM  time (wave:list<float>) ampLFO freqLFO=
+
+          let t = 1.+(1./44100.)
+          let N = 44100. * time
+          let points = [(0.)..t..N-1.]
+          let sawtoothAM = points |> List.map(fun i -> wave[int(i)]* ampLFO*( i * freqLFO - floor(0.5 + i*freqLFO)))
+          sawtoothAM 
+
+    let TriangleAM time (wave:list<float>) ampLFO freqLFO= //Sinusoidale
+          let t = 1.+(1./44100.)
+          let N = 44100. * time
+          let points = [(0.)..t..N-1.]
+          let TriangleAM = points |> List.map(fun i -> wave[int(i)]*(ampLFO*2.) *asin( sin( 2.* Pi * i * freqLFO))/ Pi)
+          TriangleAM
+          
+    let SquareAM time (wave:list<float>) ampLFO freqLFO= //Sinusoidale
+            let t = 1.+(1./44100.)
+            let N = 44100. * time
+            let calcLFO = 2. *Pi*freqLFO
+            let points = [(0.)..t..N-1.]
+            let points = points |> List.map(fun i -> wave[int(i)]*ampLFO*float(sign(sin(i*calcLFO))))
+            points 
