@@ -98,5 +98,5 @@ module Filter =
 
         let step4 = Array.init (int (time*sampleRate*0.25)) (fun i -> 0.25*amplitude - 0.25*amplitude/(time*sampleRate*0.25) * float i)
 
-        let Result = Array.init [|Attack; Decay; Sustain; Release|]
+        let Result = Array.init [|step1; step2; step3; step4|]
         Result
