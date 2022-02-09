@@ -1,4 +1,4 @@
-<h1>Project-3-Sound-Synthetizer</h1>
+<h1>Project-3-Sound-Synthesizer</h1>
 
 FSharpSyntheLibrary is a simple cross-platform(windows, mac) library multimedia. It is writtent in F# so you can use it in .NET core.
 
