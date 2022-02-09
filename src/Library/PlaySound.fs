@@ -2,6 +2,7 @@
 
 
 open System.Threading
+open System.IO
 open SFML.Audio
 open SFML.System
 module PlaySound =
@@ -34,4 +35,4 @@ module PlaySound =
 
         do while sound.Status = SoundStatus.Playing do 
             Thread.Sleep(100)
-        File.delete(way)
+        File.Delete(way)
