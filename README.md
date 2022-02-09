@@ -109,3 +109,19 @@ open FSharpSynth.Filter
 reverb (wave: list<float>)
 
 ```
+
+
+<h3>add Amplitude Modulation with Low Frequency Oscillator</h3>
+
+
+- Apply an amplitude modulation to a wave of any form thanks to another wave of any form with a frequency between 1-20 Hertz.
+  
+```f#
+open FSharpSynth.Filter
+
+sinusWave (time:float) (wave:list<float) (ampLFO:float) (freqLFO:float)
+TriangleWave (time:float) (wave:list<float) (ampLFO:float) (freqLFO:float)
+sawtoothWave (time:float) (wave:list<float) (ampLFO:float) (freqLFO:float)
+SquareWave (time:float) (wave:list<float) (ampLFO:float) (freqLFO:float)
+
+```
