@@ -73,3 +73,30 @@ module Filter =
                 last
             )
         )
+    let HighPass sampleRate cutoffFreq (wave:List<float>) =
+        let RC = 1. / (2. * Math.PI * cutoffFreq)
+        let dt = 1. / sampleRate
+        let alpha = dt / (RC + dt)
+
+        let mutable last = alpha * wave.[0]
+        [last] @ (
+            wave
+            |> List.tail
+            |> List.map (fun x ->
+                last <- alpha * x  * last
+                last
+            )
+        )
+
+    let Enveloppe time amplitude =
+
+        let step1 = Array.init (int (time*sampleRate*0.25)) (fun i -> amplitude/(time*sampleRate*0.25)* float i)
+
+        let step2 = Array.init (int (time*sampleRate*0.25)) (fun i -> amplitude - (amplitude-0.25*amplitude)/(time*sampleRate*0.25) *float i)
+
+        let step3 = Array.init (int (time*(sampleRate - sampleRate*0.25 - sampleRate*0.25 - sampleRate*At))) (fun _ -> Su*amplitude)
+
+        let step4 = Array.init (int (time*sampleRate*0.25)) (fun i -> 0.25*amplitude - 0.25*amplitude/(time*sampleRate*0.25) * float i)
+
+        let Result = Array.init [|Attack; Decay; Sustain; Release|]
+        Result
